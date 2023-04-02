@@ -9,7 +9,6 @@ using namespace std;
 #include "tools.h"
 #include "sort.h"
 
-#define VECTOR_SIZE 1000
 
 struct ClassLessThanCompare {
   bool operator() (Siga::Estudante &a, Siga::Estudante &b) 
@@ -30,11 +29,12 @@ struct ClassEqualCompare {
 int main(int argc, char* argv[])
 {
     Siga::Siga siga;
-    siga.SetDatabase("estudantes");
+    siga.InitDatabase("estudantes");
     std::vector<Siga::Estudante> data;
-    std::vector<int> idx = Siga::Tools::get_random_int_vector(VECTOR_SIZE);
+    std::vector<int> idx = Siga::Tools::get_random_int_vector(TEST_VECTOR_SIZE, siga.ObterNumeroEstudantes());
 
-    if(siga.ObterNumeroEstudantes() < VECTOR_SIZE)
+
+    if(siga.ObterNumeroEstudantes() < TEST_VECTOR_SIZE)
     {
         cout << "SIGA: Erro ao gerar vetor de indices aleatorios" << endl;
         return -1;
@@ -42,13 +42,13 @@ int main(int argc, char* argv[])
 
     siga.ExtraiaEstudantes(idx, data);
     // Copia os dados para um vetor de dados
-    if(data.size() != VECTOR_SIZE)
+    if(data.size() != TEST_VECTOR_SIZE)
     {
         cout << "SIGA: Erro ao extrair estudantes" << endl;
         return -1;
     }
 
-    sort3(data, LessThanName);
+    Sort::QuickSort(data, LessThanName);
 
     if(!Siga::Tools::is_sorted(data, LessThanName))
     {

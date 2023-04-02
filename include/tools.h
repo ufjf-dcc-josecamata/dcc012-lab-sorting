@@ -14,7 +14,7 @@ namespace Siga {
     
 namespace Tools {
 
-    std::vector<int> get_random_int_vector(int n);
+    std::vector<int> get_random_int_vector(int n, int max_values);
 
     template<typename T, class Compare >
     bool is_sorted(std::vector<T> &data, Compare cmp)
@@ -27,6 +27,16 @@ namespace Tools {
             }
         }
         return true;
+    }
+
+    template<typename T>
+    void print_vector(std::vector<T> &data)
+    {
+        for(int i = 0; i < data.size(); i++)
+        {
+            std::cout << data[i] << endl;
+        }
+       
     }
 
     template<typename T, class Compare >

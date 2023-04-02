@@ -6,3 +6,5 @@
 
 #define INPUT_DATA_DIR "/home/camata/git/dcc/dcc012/dcc012-lab-sorting/tests/data/"
 
+#define TEST_VECTOR_SIZE 100
+
