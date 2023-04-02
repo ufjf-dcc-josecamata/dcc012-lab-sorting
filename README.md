@@ -33,11 +33,11 @@ src
   
 test
   - [test1.cc](tests/test1.cc):  Testa se a entrada da base de dados está correta.   
-  - [test2.cc](tests/test2.cc):  Testa a ordenação do algoritmo ordenação #1 está correta.
-  - [test3.cc](tests/test3.cc):  Testa a ordenação do algoritmo ordenação #2 está correta.
-  - [test4.cc](tests/test4.cc):  Testa a ordenação do algoritmo ordenação #2 está correta. 
-  - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação #4 está correta.
-  - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação #5 está correta.
+  - [test2.cc](tests/test2.cc):  Testa a ordenação do algoritmo ordenação InsertionSort está correta.
+  - [test3.cc](tests/test3.cc):  Testa a ordenação do algoritmo ordenação MergeSort está correta.
+  - [test4.cc](tests/test4.cc):  Testa a ordenação do algoritmo ordenação QuickSort está correta. 
+  - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação HeapSort está correta.
+  - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação MySort   está correta.
 
 app
   - [performance.cc](app/performance.cc): Gera um relatório de performance entre os métodos.

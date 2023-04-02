@@ -32,6 +32,8 @@ class Estudante
 
         void Imprimir();
 
+        friend ostream& operator<<(ostream& os, const Estudante& est);
+
     private:
         int    _matricula;
         char   _nome[STR_MAX_SIZE];

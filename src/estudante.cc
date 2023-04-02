@@ -1,6 +1,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 #include "estudante.h"
@@ -102,6 +103,15 @@ void Estudante::Imprimir()
     cout <<"Semestre: "  << this->_semestre_ingresso << endl;
     cout <<"Curso: "     << this->_curso << endl;
     cout <<"IRA: "       << this->_matricula << endl; 
+}
+
+ostream& operator<<(ostream& os, const Estudante& est)
+{
+    os << setw(10) << left << est._matricula << " " 
+       << setw(20) << left << est._nome << " " 
+       << setw(5)  << left << est._curso << " " 
+       << setw(10) << left << setprecision(2) << fixed << est._ira;
+    return os;
 }
 
 }

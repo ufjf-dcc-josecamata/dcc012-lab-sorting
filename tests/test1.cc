@@ -11,12 +11,16 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     Siga::Siga siga;
-    siga.SetDatabase("estudantes");
-    if(siga.ObterNumeroEstudantes() == 3)
+    siga.InitDatabase("estudantes");
+    if(siga.ObterNumeroEstudantes() != 5000)
     {
-        return 0;
+        return -1;
     }
-    return -1;
+
+    if(siga.PesquisaPorMatricula(0) != 0)
+        return -1;
+
+    return 0;
 }
 
 
