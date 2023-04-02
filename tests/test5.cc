@@ -18,15 +18,15 @@ struct ClassGreaterThanCompare {
   }
 } GreatThanName;
 
-struct ClassLessThanCompare {
-  bool operator() (Siga::Estudante &a, Siga::Estudante &b) 
+struct {
+  bool operator() (Siga::Estudante &a, Siga::Estudante &b) const
   { 
     return std::strcmp(a.ObterNome(), b.ObterNome()) < 0;
   }
 } LessThanName;
 
-struct ClassEqualCompare {
-  bool operator() (Siga::Estudante &a, Siga::Estudante &b) 
+struct  {
+  bool operator() (Siga::Estudante &a, Siga::Estudante &b) const
   { 
     return std::strcmp(a.ObterNome(), b.ObterNome()) == 0;
   }

@@ -54,8 +54,6 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-   Siga::Tools::print_vector(data);
-
    cout << "SIGA: Ordenacao por nome realizada com sucesso" << endl; 
     return 0;
 }

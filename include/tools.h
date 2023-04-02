@@ -21,7 +21,8 @@ namespace Tools {
     {
         for(int i = 0; i < data.size()-1; i++)
         {
-            if(cmp(data[i], data[i+1]))
+            // Se o elemento é menor que o anterior, então o vetor não está ordenado
+            if(cmp(data[i+1], data[i]))
             {
                 return false;
             }
@@ -40,7 +41,7 @@ namespace Tools {
     }
 
     template<typename T, class Compare >
-    bool compare_vector(std::vector<T> &data1, std::vector<Estudante> &data2, Compare cmp)
+    bool compare_vector(std::vector<T> &data1, std::vector<Estudante> &data2, Compare cmp_equal)
     {
         if(data1.size() != data2.size())
         {
@@ -48,7 +49,7 @@ namespace Tools {
         }
         for(int i = 0; i < data1.size(); i++)
         {
-            if(cmp(data1[i], data2[i]))
+            if(cmp_equal(data1[i], data2[i]))
             {
                 return false;
             }
