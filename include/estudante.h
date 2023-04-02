@@ -13,21 +13,21 @@ class Estudante
 {
     public:
         Estudante();
-        Estudante(int matricula, const char* nome, int ano_ingresso, int semestre_ingresso, const char* curso, float ira);
+        Estudante(int matricula, const char* nome, int ano_ingresso, int semestre_ingresso, int curso, float ira);
         Estudante(const Estudante& estudante);
 
         int         ObterMatricula();
         const char* ObterNome();
         int         ObterAnoIngresso();
         int         ObterSemestreIngresso();
-        const char* ObterCurso();
+        int         ObterCurso();
         float       ObterIRA();
 
         void TrocarMatricula(int matricula);
         void TrocarNome(const char* nome);
         void TrocarAnoIngresso(int ano_ingresso);
         void TrocarSemestreIngresso(int semestre_ingresso);
-        void TrocarCurso(const char* curso);
+        void TrocarCurso(int curso);
         void TrocarIRA(float ira);
 
         void Imprimir();
@@ -37,7 +37,7 @@ class Estudante
         char   _nome[STR_MAX_SIZE];
         int    _ano_ingresso;
         int    _semestre_ingresso;
-        char   _curso[STR_MAX_SIZE];
+        int    _curso;
         float  _ira;
 };
 

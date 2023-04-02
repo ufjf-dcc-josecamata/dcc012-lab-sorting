@@ -10,27 +10,27 @@ using namespace std;
 namespace Siga 
 {
 
-Estudante::Estudante():_matricula(0), _nome("") , _ano_ingresso(0), _semestre_ingresso(0), _curso(""), _ira(0.0)
+Estudante::Estudante():_matricula(0), _nome("") , _ano_ingresso(0), _semestre_ingresso(0), _curso(0), _ira(0.0)
 {};
 
-Estudante::Estudante( int matricula, const char* nome, int ano_ingresso, int semestre_ingresso, const char* curso, float ira)
+Estudante::Estudante( int matricula, const char* nome, int ano_ingresso, int semestre_ingresso, int curso, float ira)
 {    
     _matricula    = matricula;
      strcpy(_nome,nome);
     _ano_ingresso = ano_ingresso;
     _semestre_ingresso = semestre_ingresso;
-    strcpy(_curso,curso);
+    _curso = curso;
     _ira          = ira;
 }
 
 Estudante::Estudante(const Estudante& estudante)
 {
-    _matricula    = estudante._matricula;
+    _matricula         = estudante._matricula;
     strcpy(_nome,estudante._nome);
-    _ano_ingresso = estudante._ano_ingresso;
+    _ano_ingresso      = estudante._ano_ingresso;
     _semestre_ingresso = estudante._semestre_ingresso;
-    strcpy(_curso,estudante._curso);
-    _ira          = estudante._ira;
+    _curso             = estudante._curso;
+    _ira               = estudante._ira;
 }
         
 int Estudante::ObterMatricula()
@@ -54,7 +54,7 @@ int Estudante::ObterSemestreIngresso()
     return this->_semestre_ingresso;
 }
 
-const char* Estudante::ObterCurso()
+int Estudante::ObterCurso()
 {
     return this->_curso;
 }
@@ -79,9 +79,9 @@ void Estudante::TrocarSemestreIngresso(int semestre_ingresso)
     this->_semestre_ingresso = semestre_ingresso;
 }
 
-void Estudante::TrocarCurso(const char* curso)
+void Estudante::TrocarCurso(int curso)
 {
-    strcpy(_curso,curso);
+    _curso = curso;
 }
 
 void Estudante::TrocarAnoIngresso(int ano_ingresso)
