@@ -6,6 +6,8 @@ using namespace std;
 #include "siga.h"
 #include "config.h"
 
+namespace Siga {
+
 Siga::Siga()
 {
     this->arquivo_nome = "";
@@ -15,7 +17,8 @@ Siga::Siga()
 void Siga::SetDatabase(string arquivo_dados_estudante)
 {
 
-    this->arquivo_nome = INPUT_DATA_DIR+arquivo_dados_estudante;
+    std::string  arquivo_rname = INPUT_DATA_DIR+arquivo_dados_estudante;
+    this->arquivo_nome = arquivo_rname = ".bin";
 
     // Obter numero de estudantes no arquivo
     // Se o arquivo não existir, o numero de estudantes é zero
@@ -41,7 +44,10 @@ void Siga::SetDatabase(string arquivo_dados_estudante)
             cout << "SIGA: Erro ao criar arquivo de dados de estudante" << endl;
             return;
         }
-    
+
+        // Abre p arquivo csv para inicializar o arquivo binario
+        this->LerCSV(arquivo_dados_estudante);
+
     }
 
 
@@ -49,6 +55,12 @@ void Siga::SetDatabase(string arquivo_dados_estudante)
     int length = this->file_stream.tellg();
     this->file_stream.seekg(0, this->file_stream.beg);
     this->n_estudantes = length / sizeof(Estudante);
+
+    if(this->n_estudantes == 0)
+    {
+        // Abre o arquivo csv para inicializar o arquivo binario
+        this->LerCSV(arquivo_dados_estudante);
+    }
     
     cout << this->n_estudantes << " registros de estudantes" << endl;
 }
@@ -60,7 +72,7 @@ void Siga::LerCSV(string arquivo_csv)
     // Passos:
     // Abrir arquivo CSV
 
-    string arquivo_csv_path = INPUT_DATA_DIR+arquivo_csv;
+    string arquivo_csv_path = INPUT_DATA_DIR+arquivo_csv+".csv";
     ifstream csv_file;
     csv_file.open(arquivo_csv_path);
     if(!csv_file.is_open())
@@ -72,6 +84,7 @@ void Siga::LerCSV(string arquivo_csv)
     string line;
     getline(csv_file, line);
 
+    // TODO: altere esse codigo para ler os campos extras do arquivo CSV de entrada.
     // Para cada linha de dados
     while(getline(csv_file, line))
     {
@@ -104,65 +117,34 @@ void Siga::LerCSV(string arquivo_csv)
 
 int  Siga::PesquisaPorMatricula(int matricula)
 {
-    // TODO: implementar pesquisa por matrícula
-    // Posicione o cursor para o inicio do arquivo:
-    // Para i = 0 até n_estudante
-    //    Ler estudante na posição corrente no arquivo
-    //    Testar se é a matricula procurada, se afirmativo
-    //    retorne a posiçao i.
-    // Fim-Para
-    // Coloque o cursor para o final do arquivo
-    // retorne -1
+    // TODO: Cópie o codigo da atividade passada aqui
     return -1;
 }
         
 void Siga::AdicionaEstudante(Estudante est)
 {
-    // TODO: Implementar cadastro de estudante
-    // Passos:
-    // Testar se est já foi cadastrado
-    // Se já cadastrado, retorne sem fazer nada   
-    // Caso Contrário, adicione o estudante no final do arquivobinário
-    // e incremente o numero de estudantes
+    // TODO: Cópie o codigo da atividade passada aqui
     
 }
   
 Estudante Siga::ObterEstudante(int idx)
 {
     Estudante est;
-    // TODO: implementar obter estudante
-    // Posicione o cursor para o inicio do arquivo
-    // Posicione o cursor para a posição idx
-    // Leia o estudante na posição idx
-    // Retorne o estudante
+    //TODO: Cópie o codigo da atividade passada aqui
     return est;
 }
         
 void Siga::SalvaCSV(string arquivo_csv)
 {
     string arquivo_csv_path = INPUT_DATA_DIR+arquivo_csv;
-    // TODO: implementar salvamento de arquivo CSV
-    // Passos:
-    // Abrir arquivo CSV
-    // Escrever cabeçalho
-    // Posicione o cursor para o inicio do arquivo binário
-    // Para cada linha de dados
-    //    Ler um estudante do arquivo binário
-    //    Escrever o objeto estudante no arquivo CSV
-    // Fim-Para
-    // Fechar arquivo CSV
+    // TODO: Cópie o codigo da atividade passada aqui
    
 }
         
         
 void Siga::AlteraCadastroEstudante(int idx, Estudante est)
 {
-    // TODO: implementar alteração de cadastro de estudante
-    // Passos:
-    // Posicione o cursor para o inicio do arquivo
-    // Posicione o cursor para a posição idx
-    // Escreva o estudante na posição idx
-    // Saia da função
+    // TODO: Cópie o codigo da atividade passada aqui
 }
         
 Siga::~Siga()
@@ -175,15 +157,29 @@ int Siga::ObterNumeroEstudantes()
     return this->n_estudantes;
 }
 
-
+// Le um objeto estudante no arquivo binario
 void Siga::LeiaEstudante(int idx, Estudante &est)
 {
     this->file_stream.seekg(idx * sizeof(Estudante), this->file_stream.beg);
     this->file_stream.read((char *)&est, sizeof(Estudante));
 }
 
+// Escreve um objeto estudante no arquivo binario
 void Siga::EscrevaEstudante(int idx, Estudante est)
 {
     this->file_stream.seekp(idx * sizeof(Estudante), this->file_stream.beg);
     this->file_stream.write((char *)&est, sizeof(Estudante));
+}
+
+
+// Retorna uma vetor de estudantes
+void Siga::ExtraiaEstudantes(std::vector<int> idxs, std::vector<Estudante> &list)
+{
+    list.resize(idxs.size());
+    for(int i = 0; i < idxs.size(); i++)
+    {
+        this->LeiaEstudante(idxs[i], list[i]);
+    }
+}
+
 }

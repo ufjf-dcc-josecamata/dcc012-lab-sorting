@@ -4,9 +4,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
+
 #include "config.h"
 #include "estudante.h"
+
+namespace Siga
+{
 
 class Siga
 {
@@ -20,6 +25,7 @@ class Siga
         void AlteraCadastroEstudante(int idx, Estudante est); // Altera cadastro do estudante localizado na posicao idx do arquivo binário
         void SalvaCSV(string arquivo_txt);                  // salvar a lista de estudantes em um arquivo texto formatado CSV
         int  ObterNumeroEstudantes();                       // retorna o numero de estudantes na base de dados
+        void ExtraiaEstudantes(std::vector<int> idxs, std::vector<Estudante> &list); // extrai estudantes com endereços idx da base de dados para um vetor de estudantes
         ~Siga();
     private:
         // atributos
@@ -31,5 +37,7 @@ class Siga
         void      LeiaEstudante(int idx, Estudante &est);
         void      EscrevaEstudante(int idx, Estudante est);
 };
+
+} // namespace Siga
 
 #endif /* SIGA_H */

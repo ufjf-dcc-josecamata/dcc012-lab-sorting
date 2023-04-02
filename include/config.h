@@ -4,5 +4,5 @@
 // o diretório onde os arquivos de entrada estão localizados.
 // Não deve ser modificado manualmente.
 
-#cmakedefine INPUT_DATA_DIR "@INPUT_DATA_DIR@"
+#define INPUT_DATA_DIR "/home/camata/git/dcc/dcc012/dcc012-lab-sorting/tests/data/"
 
