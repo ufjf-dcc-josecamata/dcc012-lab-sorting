@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    Sort::InsertionSort(data, LessThanName);
+    Sort::BasicSort(data, LessThanName);
 
     if(!Siga::Tools::is_sorted(data, LessThanName))
     {

@@ -30,40 +30,7 @@ namespace Siga
             cout << vec[i] << endl;
         }
         return vec;
-    }
-
-
-    PerformanceTimer::PerformanceTimer()
-    {
-        running = false;
-    }
-
-    void PerformanceTimer::start()
-    {
-        start_time = std::chrono::high_resolution_clock::now();
-        running = true;
-    }
-
-    void PerformanceTimer::stop()
-    {
-        end_time = std::chrono::high_resolution_clock::now();
-        running = false;
-    }
-
-    double PerformanceTimer::elapsed_time()
-    {
-        std::chrono::duration<double> elapsed_seconds;
-        if(running)
-        {
-            elapsed_seconds = std::chrono::high_resolution_clock::now() - start_time;
-        }
-        else
-        {
-            elapsed_seconds = end_time - start_time;
-        }
-        return elapsed_seconds.count();
-    }
-
+      }
     }
     
 }

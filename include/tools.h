@@ -57,19 +57,7 @@ namespace Tools {
         return true;
     }
 
-    // Classe para medir o tempo de execução de um algoritmo
-    class PerformanceTimer
-    {   
-        public:
-            PerformanceTimer();
-            void start();
-            void stop();
-            double elapsed_time();
-        private:
-            std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
-            std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
-            bool running;
-    };
+
 } // end namespace tools
 
 }
