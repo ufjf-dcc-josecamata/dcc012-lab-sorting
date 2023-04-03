@@ -100,7 +100,7 @@ Além do código, um relatório com a análise da atividade deverá ser entregue
 ## 📝 Importante
 
 - **Não será permita o envio de código-fonte vai upload de arquivos** no github!! Todos os
-envios devem ser via *commits* e *push* ao reposítorio.
+envios devem ser via *commits* e *push* ao repositório.
 - **Trabalhos iguais -> nota 0!!** Logo não copie do colega!!! 
 
 
