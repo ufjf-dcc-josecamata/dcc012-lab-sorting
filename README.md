@@ -14,7 +14,7 @@ informações baseados em uma determinada chave de comparação.
 
 ### Etapas:
 
-1. Copiar as rotinas do siga.cc que foram desenvolvidas na atividada prática anterior para o arquivo siga.cc atual. 
+1. Copiar as rotinas do [siga.cc](src/siga.cc) que foram desenvolvidas na atividada prática anterior para o arquivo siga.cc atual. 
 2. Alterar a rotina de leitura de dados do arquivo CSV. Observe que novas colunas foram inseridas no arquivo *estundantes.csv*. Alterações em outras partes do código serão necessárias para evitar BUGs. Indetifique-as e faça as correções necessárias.
 3. Implementar as rotinas de ordenação no arquivo [sort.h](include/sort.h). Seguir as indicações nas marcações **TODO**.
 4. Verificar se as rotinas passam nos testes definidos na pasta tests. Observem como os testes foram feitos e implementados. Há alguma falha neles?
