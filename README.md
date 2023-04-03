@@ -37,7 +37,7 @@ test
   - [test3.cc](tests/test3.cc):  Testa a ordenação do algoritmo ordenação MergeSort está correta.
   - [test4.cc](tests/test4.cc):  Testa a ordenação do algoritmo ordenação QuickSort está correta. 
   - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação HeapSort está correta.
-  - [test5.cc](tests/test5.cc):  Testa a ordenação do algoritmo ordenação MySort   está correta.
+  - [test6.cc](tests/test6.cc):  Testa a ordenação do algoritmo ordenação MySort   está correta.
 
 app
   - [performance.cc](app/performance.cc): Gera um relatório de performance entre os métodos.
